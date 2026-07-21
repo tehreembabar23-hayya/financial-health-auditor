@@ -29,9 +29,10 @@ android {
     buildFeatures {
       compose = true
       aidl = false
-      buildConfig = false
+      buildConfig = true
       shaders = false
     }
+
 
     packaging {
       resources {
@@ -90,4 +91,8 @@ dependencies {
 
   // Material Icons
   implementation(libs.androidx.compose.material.icons.core)
+
+  // ML Kit Text Recognition
+  implementation("com.google.mlkit:text-recognition:16.0.1")
 }
+
