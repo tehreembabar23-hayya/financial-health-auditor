@@ -17,6 +17,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tehreembabar23hayya.financialhealthauditor.BuildConfig
 import com.tehreembabar23hayya.financialhealthauditor.data.AppDatabase
 import com.tehreembabar23hayya.financialhealthauditor.utils.SyntheticDataGenerator
+import com.tehreembabar23hayya.financialhealthauditor.detection.DuplicateSubscriptionDetector
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -38,6 +39,7 @@ class MonthlySummaryViewModel(application: Application) : AndroidViewModel(appli
         viewModelScope.launch {
             _isGenerating.value = true
             SyntheticDataGenerator.generate(dao)
+            DuplicateSubscriptionDetector.detectAndFlag(dao)
             _isGenerating.value = false
             _isDone.value = true
         }

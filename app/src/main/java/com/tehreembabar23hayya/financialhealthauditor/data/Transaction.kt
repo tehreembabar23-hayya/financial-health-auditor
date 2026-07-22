@@ -16,5 +16,9 @@ data class Transaction(
     val isRecurring: Boolean = false,
     val isFlagged: Boolean = false,
     val issueType: String? = null,
-    val reviewStatus: String? = "pending"
+    val reviewStatus: String? = "pending",
+    val explanation: String? = null,
+    val draftText: String? = null
 )
+
+
