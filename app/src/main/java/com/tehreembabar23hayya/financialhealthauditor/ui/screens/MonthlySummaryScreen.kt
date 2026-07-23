@@ -39,7 +39,7 @@ class MonthlySummaryViewModel(application: Application) : AndroidViewModel(appli
         viewModelScope.launch {
             _isGenerating.value = true
             SyntheticDataGenerator.generate(dao)
-            DuplicateSubscriptionDetector.detectAndFlag(dao)
+            DuplicateSubscriptionDetector.detectAndFlag(dao, getApplication())
             _isGenerating.value = false
             _isDone.value = true
         }

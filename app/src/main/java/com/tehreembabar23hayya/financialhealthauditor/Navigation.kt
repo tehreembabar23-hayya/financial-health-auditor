@@ -22,8 +22,6 @@ fun MainNavigation() {
         entry<Welcome> {
           WelcomeScreen(
             onNavigateToChooseModules = { backStack.add(ChooseModules) },
-            onNavigateToFlaggedIssues = { backStack.add(FlaggedIssues) },
-            onNavigateToMonthlySummary = { backStack.add(MonthlySummary) },
             modifier = Modifier.safeDrawingPadding().padding(16.dp)
           )
         }
